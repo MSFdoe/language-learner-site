@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learner — Learn Any 3 Languages at Once</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            background: #fafaf8;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%);
+            color: #e8e8e0;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #a0a090;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero .terminal-preview {
+            background: #111;
+            border-radius: 12px;
+            padding: 30px 40px;
+            max-width: 620px;
+            margin: 0 auto;
+            text-align: left;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.95em;
+            line-height: 1.8;
+            border: 1px solid #333;
+        }
+
+        .terminal-preview .prompt { color: #6a6; }
+        .terminal-preview .output { color: #bbb; }
+        .terminal-preview .highlight { color: #e8c86a; }
+        .terminal-preview .dim { color: #666; }
+
+        .hero .buy-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #2a7a2a;
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-size: 1.15em;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .hero .buy-btn:hover {
+            background: #3a9a3a;
+        }
+
+        .hero .buy-btn .price {
+            font-size: 0.85em;
+            opacity: 0.8;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Sections */
+        .section {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 70px 24px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section h2 .accent {
+            color: #2a7a2a;
+        }
+
+        .section p {
+            font-size: 1.15em;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .section p strong {
+            color: #1a1a1a;
+        }
+
+        /* Feature grid */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            background: #fff;
+            border: 1px solid #e0e0d8;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .feature h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Why terminal */
+        .why-terminal {
+            background: #f0f0ea;
+            padding: 70px 24px;
+        }
+
+        .why-terminal .inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .why-terminal h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .advantage {
+            margin-bottom: 30px;
+        }
+
+        .advantage h3 {
+            font-size: 1.2em;
+            margin-bottom: 6px;
+        }
+
+        .advantage p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        /* Languages */
+        .languages {
+            text-align: center;
+            background: #0a0a0a;
+            color: #e8e8e0;
+            padding: 70px 24px;
+        }
+
+        .languages h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .languages .subtitle {
+            color: #888;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .lang-grid {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .lang-tag {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 0.95em;
+            color: #aaa;
+        }
+
+        /* Install */
+        .install {
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .install h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .steps {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .step {
+            margin-bottom: 30px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #0a0a0a;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+
+        .step h3 {
+            display: inline;
+            font-size: 1.1em;
+        }
+
+        .step p {
+            margin-top: 6px;
+            margin-left: 42px;
+            color: #555;
+        }
+
+        .step code {
+            display: block;
+            background: #111;
+            color: #e8c86a;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-left: 42px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0d8;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2em; }
+            .features { grid-template-columns: 1fr; }
+            .hero .terminal-preview { padding: 20px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>Language Learner</h1>
+    <p class="subtitle">Learn any 3 languages at the same time. Your vocabulary grows forever. Your data never leaves your computer.</p>
+
+    <div class="terminal-preview">
+        <span class="dim">--- Chunk 1 ---</span><br>
+        <span class="highlight">English:</span> <span class="output">Life is beautiful and the world is big.</span><br>
+        <span class="highlight">Spanish:</span> <span class="output">La vida es bella y el mundo es grande.</span><br>
+        <span class="highlight">German:</span>&nbsp; <span class="output">Das Leben ist sch&ouml;n und die Welt ist gro&szlig;.</span><br>
+        <br>
+        <span class="output">English&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spanish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;German</span><br>
+        <span class="dim">--------------------&nbsp;--------------------&nbsp;--------------------</span><br>
+        <span class="output">beautiful&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bella&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sch&ouml;n</span><br>
+        <span class="output">life&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leben</span><br>
+        <span class="output">world&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mundo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welt</span><br>
+        <br>
+        <span class="prompt">3 words saved.</span>
+    </div>
+
+    <!-- STRIPE: Replace YOUR_STRIPE_LINK below with your real Stripe payment link -->
+    <a href="YOUR_STRIPE_LINK" class="buy-btn">
+        Get Language Learner
+        <span class="price">$19 — one-time, yours forever</span>
+    </a>
+</div>
+
+<div class="section">
+    <h2>Paste text. <span class="accent">Learn words.</span></h2>
+    <p>Copy a paragraph from a book, a news article, a song lyric — in any language. Language Learner splits it into small chunks, translates each chunk into your 3 chosen languages side by side, extracts the important words, and saves them to your personal database.</p>
+    <p>Every time you process text, your vocabulary grows. Words you learned last week come back in quizzes alongside today's new words.</p>
+
+    <div class="features">
+        <div class="feature">
+            <h3>Process Text</h3>
+            <p>Paste anything. Get instant translations in 3 languages. Vocabulary extracted and saved automatically.</p>
+        </div>
+        <div class="feature">
+            <h3>Quiz Yourself</h3>
+            <p>Newest words first, then random from your entire history. Direction is random — English to Spanish, German to English, any combination.</p>
+        </div>
+        <div class="feature">
+            <h3>AI Tutor</h3>
+            <p>Ask any question: "Why is this different in German?" Works with Claude, ChatGPT, Gemini, or free local AI.</p>
+        </div>
+        <div class="feature">
+            <h3>Growing Database</h3>
+            <p>Your vocabulary database gets bigger every session. See everything you've ever learned, with quiz stats.</p>
+        </div>
+    </div>
+</div>
+
+<div class="why-terminal">
+    <div class="inner">
+        <h2>Why a terminal tool?</h2>
+
+        <div class="advantage">
+            <h3>Your data stays on your computer.</h3>
+            <p>No account. No cloud. No company holding your vocabulary hostage. Your database is a file on your machine. Back it up, move it, keep it forever.</p>
+        </div>
+
+        <div class="advantage">
+            <h3>Unlimited storage.</h3>
+            <p>Language apps give you what fits on their servers. A terminal tool gives you what fits on your hard drive — which is thousands of times more. Learn 50 words or 50,000. There is no premium tier.</p>
+        </div>
+
+        <div class="advantage">
+            <h3>It's faster.</h3>
+            <p>No loading screens. No animations. No popups asking you to rate the app. Type a number, press Enter. That's it.</p>
+        </div>
+
+        <div class="advantage">
+            <h3>You own the tool.</h3>
+            <p>It runs on your machine. It works offline (except translations). No subscription that expires. No company that can shut down and take your progress with it.</p>
+        </div>
+
+        <div class="advantage">
+            <h3>One command to install.</h3>
+            <p>If you can copy and paste, you can install it. The terminal is not scary — it's just typing. And once you try it, you'll wonder why you ever clicked buttons.</p>
+        </div>
+    </div>
+</div>
+
+<div class="languages">
+    <h2>30 Languages</h2>
+    <p class="subtitle">Pick any 3. Change anytime.</p>
+    <div class="lang-grid">
+        <span class="lang-tag">Arabic</span>
+        <span class="lang-tag">Bulgarian</span>
+        <span class="lang-tag">Chinese</span>
+        <span class="lang-tag">Czech</span>
+        <span class="lang-tag">Danish</span>
+        <span class="lang-tag">Dutch</span>
+        <span class="lang-tag">English</span>
+        <span class="lang-tag">Estonian</span>
+        <span class="lang-tag">Finnish</span>
+        <span class="lang-tag">French</span>
+        <span class="lang-tag">German</span>
+        <span class="lang-tag">Greek</span>
+        <span class="lang-tag">Hungarian</span>
+        <span class="lang-tag">Indonesian</span>
+        <span class="lang-tag">Italian</span>
+        <span class="lang-tag">Japanese</span>
+        <span class="lang-tag">Korean</span>
+        <span class="lang-tag">Latvian</span>
+        <span class="lang-tag">Lithuanian</span>
+        <span class="lang-tag">Norwegian</span>
+        <span class="lang-tag">Polish</span>
+        <span class="lang-tag">Portuguese</span>
+        <span class="lang-tag">Romanian</span>
+        <span class="lang-tag">Russian</span>
+        <span class="lang-tag">Slovak</span>
+        <span class="lang-tag">Slovenian</span>
+        <span class="lang-tag">Spanish</span>
+        <span class="lang-tag">Swedish</span>
+        <span class="lang-tag">Turkish</span>
+        <span class="lang-tag">Ukrainian</span>
+    </div>
+</div>
+
+<div class="install">
+    <h2>How it works</h2>
+
+    <div class="steps">
+        <div class="step">
+            <span class="step-number">1</span>
+            <h3>Buy and download</h3>
+            <p>One payment, no subscription. You get a download for Mac, Windows, or Linux.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <h3>Get a free DeepL key</h3>
+            <p>Sign up at <strong>deepl.com/pro#developer</strong> (free plan — 500,000 characters per month). This powers the translations.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <h3>Run it</h3>
+            <p>Open your terminal, run the program. Pick your 3 languages. Start pasting text and learning.</p>
+        </div>
+    </div>
+
+    <!-- STRIPE: Replace YOUR_STRIPE_LINK below with your real Stripe payment link -->
+    <a href="YOUR_STRIPE_LINK" style="display:inline-block;margin-top:30px;background:#0a0a0a;color:#fff;text-decoration:none;padding:16px 40px;border-radius:10px;font-size:1.15em;font-weight:600;">
+        Get Language Learner — $19
+    </a>
+</div>
+
+<div class="footer">
+    Language Learner &mdash; built for people who want to own their learning.
+</div>
+
+</body>
+</html>

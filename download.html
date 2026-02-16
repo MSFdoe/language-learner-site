@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learner — Download</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            background: #fafaf8;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .thanks {
+            font-size: 1.2em;
+            color: #2a7a2a;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+
+        .downloads {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: block;
+            background: #0a0a0a;
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 24px;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #2a2a2a;
+        }
+
+        .download-btn .platform {
+            font-weight: 700;
+        }
+
+        .download-btn .detail {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .step {
+            margin-bottom: 24px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #0a0a0a;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-right: 8px;
+        }
+
+        .step h3 {
+            display: inline;
+            font-size: 1.05em;
+        }
+
+        .step p {
+            margin-top: 4px;
+            margin-left: 36px;
+            color: #555;
+        }
+
+        code {
+            display: block;
+            background: #111;
+            color: #e8c86a;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-left: 36px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+
+        .note {
+            background: #f0f0ea;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-top: 40px;
+            color: #555;
+        }
+
+        .note strong {
+            color: #1a1a1a;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0d8;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Language Learner</h1>
+    <p class="thanks">Thank you for your purchase.</p>
+
+    <h2>Download</h2>
+    <p>Pick the right version for your computer:</p>
+
+    <div class="downloads">
+        <a href="https://github.com/MSFdoe/language-learner/releases/latest/download/language_learner-macos-arm64" class="download-btn">
+            <span class="platform">Mac (Apple Silicon)</span><br>
+            <span class="detail">MacBook Air/Pro 2020 or newer, iMac 2021 or newer</span>
+        </a>
+        <a href="https://github.com/MSFdoe/language-learner/releases/latest/download/language_learner-macos-x64" class="download-btn">
+            <span class="platform">Mac (Intel)</span><br>
+            <span class="detail">MacBook/iMac from before 2020</span>
+        </a>
+        <a href="https://github.com/MSFdoe/language-learner/releases/latest/download/language_learner-linux-x64" class="download-btn">
+            <span class="platform">Linux</span><br>
+            <span class="detail">Ubuntu, Debian, Fedora, etc.</span>
+        </a>
+        <a href="https://github.com/MSFdoe/language-learner/releases/latest/download/language_learner-windows-x64.exe" class="download-btn">
+            <span class="platform">Windows</span><br>
+            <span class="detail">Windows 10 or newer</span>
+        </a>
+    </div>
+
+    <h2>Setup (2 minutes)</h2>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <h3>Get a free DeepL API key</h3>
+        <p>Go to <strong>deepl.com/pro#developer</strong>, sign up for the free plan (500,000 characters/month), and copy your API key.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <h3>Open your terminal</h3>
+        <p><strong>Mac:</strong> Open "Terminal" (search for it in Spotlight).<br>
+        <strong>Windows:</strong> Open "Command Prompt" or "PowerShell".<br>
+        <strong>Linux:</strong> You already know.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <h3>Make it runnable (Mac/Linux only)</h3>
+        <p>After downloading, run this once:</p>
+        <code>chmod +x ~/Downloads/language_learner-macos-arm64</code>
+        <p style="margin-left: 36px; margin-top: 6px; font-size: 0.9em; color: #888;">(Replace the filename with whichever version you downloaded)</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4</span>
+        <h3>Run it</h3>
+        <code>~/Downloads/language_learner-macos-arm64</code>
+        <p style="margin-left: 36px; margin-top: 10px;">It will ask for your DeepL key, let you pick 3 languages, and you're ready to go.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">5</span>
+        <h3>Optional: Move it to your PATH</h3>
+        <p>So you can run it from anywhere by just typing <strong>language_learner</strong>:</p>
+        <code>sudo mv ~/Downloads/language_learner-macos-arm64 /usr/local/bin/language_learner</code>
+    </div>
+
+    <div class="note">
+        <strong>Your data is yours.</strong> Everything is stored on your computer in <code style="display: inline; background: #ddd; color: #333; padding: 2px 6px; margin: 0;">~/.language_learner/</code>. Your vocabulary database grows with every session and never expires. Back it up like any other file.
+    </div>
+</div>
+
+<div class="footer">
+    Questions? Email support@languagelearner.dev
+</div>
+
+</body>
+</html>
