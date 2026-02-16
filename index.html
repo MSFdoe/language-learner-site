@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Tools — Own Your Software</title>
+    <title>Language Learner — Learn Any 3 Languages at Once</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,7 +17,7 @@
         /* Hero */
         .hero {
             text-align: center;
-            padding: 80px 20px 70px;
+            padding: 80px 20px 60px;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a2a1a 100%);
             color: #e8e8e0;
         }
@@ -32,192 +32,51 @@
         .hero .subtitle {
             font-size: 1.3em;
             color: #a0a090;
-            max-width: 650px;
-            margin: 0 auto 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
 
-        /* Products */
-        .products {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 70px 24px;
-        }
-
-        .products h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .product-card {
-            background: #fff;
-            border: 2px solid #e0e0d8;
-            border-radius: 16px;
-            padding: 36px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 6px;
-        }
-
-        .product-card .tagline {
-            color: #2a7a2a;
-            font-size: 1.05em;
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-
-        .product-card p {
-            color: #555;
-            font-size: 1em;
-            margin-bottom: 16px;
-            flex-grow: 1;
-        }
-
-        .product-card .terminal-preview {
+        .hero .terminal-preview {
             background: #111;
-            border-radius: 10px;
-            padding: 18px 20px;
+            border-radius: 12px;
+            padding: 30px 40px;
+            max-width: 620px;
+            margin: 0 auto;
+            text-align: left;
             font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-            font-size: 0.85em;
-            line-height: 1.7;
-            color: #bbb;
-            margin-bottom: 20px;
-        }
-
-        .product-card .terminal-preview .hl { color: #e8c86a; }
-        .product-card .terminal-preview .dm { color: #666; }
-        .product-card .terminal-preview .gr { color: #6a6; }
-
-        .product-card .feature-list {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .product-card .feature-list li {
-            padding: 4px 0;
-            color: #444;
             font-size: 0.95em;
+            line-height: 1.8;
+            border: 1px solid #333;
         }
 
-        .product-card .feature-list li::before {
-            content: "\2713\00a0\00a0";
-            color: #2a7a2a;
-            font-weight: 700;
-        }
+        .terminal-preview .prompt { color: #6a6; }
+        .terminal-preview .output { color: #bbb; }
+        .terminal-preview .highlight { color: #e8c86a; }
+        .terminal-preview .dim { color: #666; }
 
-        .product-card .price {
-            font-size: 1.8em;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .product-card .price-note {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 16px;
-        }
-
-        .buy-btn {
-            display: block;
-            text-align: center;
-            background: #0a0a0a;
+        .hero .buy-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #2a7a2a;
             color: #fff;
             text-decoration: none;
-            padding: 14px 24px;
+            padding: 16px 40px;
             border-radius: 10px;
-            font-size: 1.05em;
+            font-size: 1.15em;
             font-weight: 600;
             transition: background 0.2s;
         }
 
-        .buy-btn:hover {
-            background: #2a2a2a;
-        }
+        .hero .buy-btn:hover { background: #3a9a3a; }
 
-        /* Bundle */
-        .bundle {
-            background: linear-gradient(135deg, #1a2a1a 0%, #0a0a0a 100%);
-            border: 2px solid #2a7a2a;
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            color: #e8e8e0;
-            max-width: 900px;
-            margin: 0 auto 20px;
-        }
-
-        .bundle .badge {
-            display: inline-block;
-            background: #2a7a2a;
-            color: #fff;
-            padding: 4px 16px;
-            border-radius: 20px;
+        .hero .buy-btn .price {
             font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            opacity: 0.8;
+            display: block;
+            margin-top: 2px;
         }
 
-        .bundle h3 {
-            font-size: 1.8em;
-            margin-bottom: 8px;
-        }
-
-        .bundle .bundle-desc {
-            color: #a0a090;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-
-        .bundle .prices {
-            margin-bottom: 20px;
-        }
-
-        .bundle .old-price {
-            color: #666;
-            text-decoration: line-through;
-            font-size: 1.2em;
-            margin-right: 12px;
-        }
-
-        .bundle .new-price {
-            font-size: 2.2em;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .bundle .save {
-            color: #4a4;
-            font-size: 1em;
-            margin-top: 4px;
-        }
-
-        .bundle .buy-btn {
-            display: inline-block;
-            background: #2a7a2a;
-            padding: 16px 50px;
-            font-size: 1.15em;
-            margin-top: 10px;
-        }
-
-        .bundle .buy-btn:hover {
-            background: #3a9a3a;
-        }
-
-        /* Tool 1: Language Learner detail */
+        /* Sections */
         .section {
             max-width: 760px;
             margin: 0 auto;
@@ -238,22 +97,25 @@
             margin-bottom: 20px;
         }
 
+        .section p strong { color: #1a1a1a; }
+
+        /* Feature grid */
         .features {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .feature {
             background: #fff;
             border: 1px solid #e0e0d8;
             border-radius: 12px;
-            padding: 24px;
+            padding: 30px;
         }
 
-        .feature h3 { font-size: 1.1em; margin-bottom: 6px; }
-        .feature p { font-size: 0.95em; color: #555; margin-bottom: 0; }
+        .feature h3 { font-size: 1.2em; margin-bottom: 8px; }
+        .feature p { font-size: 1em; color: #555; margin-bottom: 0; }
 
         /* Why terminal */
         .why-terminal {
@@ -268,20 +130,20 @@
 
         .why-terminal h2 { font-size: 2em; margin-bottom: 30px; }
 
-        .advantage { margin-bottom: 28px; }
-        .advantage h3 { font-size: 1.15em; margin-bottom: 4px; }
-        .advantage p { font-size: 1.05em; color: #444; }
+        .advantage { margin-bottom: 30px; }
+        .advantage h3 { font-size: 1.2em; margin-bottom: 6px; }
+        .advantage p { font-size: 1.1em; color: #444; }
 
-        /* Languages bar */
+        /* Languages */
         .languages {
             text-align: center;
             background: #0a0a0a;
             color: #e8e8e0;
-            padding: 60px 24px;
+            padding: 70px 24px;
         }
 
         .languages h2 { font-size: 2em; margin-bottom: 10px; }
-        .languages .subtitle { color: #888; font-size: 1.1em; margin-bottom: 24px; }
+        .languages .subtitle { color: #888; font-size: 1.1em; margin-bottom: 30px; }
 
         .lang-grid {
             max-width: 700px;
@@ -289,16 +151,139 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .lang-tag {
             background: #1a1a1a;
             border: 1px solid #333;
             border-radius: 8px;
-            padding: 6px 14px;
-            font-size: 0.9em;
+            padding: 8px 16px;
+            font-size: 0.95em;
             color: #aaa;
+        }
+
+        /* How it works */
+        .install {
+            text-align: center;
+            padding: 80px 24px;
+        }
+
+        .install h2 { font-size: 2em; margin-bottom: 30px; }
+
+        .steps {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .step { margin-bottom: 30px; }
+
+        .step-number {
+            display: inline-block;
+            background: #0a0a0a;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+
+        .step h3 { display: inline; font-size: 1.1em; }
+
+        .step p {
+            margin-top: 6px;
+            margin-left: 42px;
+            color: #555;
+        }
+
+        .step code {
+            display: block;
+            background: #111;
+            color: #e8c86a;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-left: 42px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.95em;
+        }
+
+        /* Bundle banner */
+        .bundle-banner {
+            background: linear-gradient(135deg, #1a2a1a 0%, #0a0a0a 100%);
+            padding: 60px 24px;
+            text-align: center;
+            color: #e8e8e0;
+        }
+
+        .bundle-banner .inner {
+            max-width: 660px;
+            margin: 0 auto;
+        }
+
+        .bundle-banner h2 {
+            font-size: 1.8em;
+            margin-bottom: 12px;
+        }
+
+        .bundle-banner p {
+            color: #a0a090;
+            font-size: 1.1em;
+            margin-bottom: 24px;
+        }
+
+        .bundle-banner .price-row {
+            margin-bottom: 20px;
+        }
+
+        .bundle-banner .old-price {
+            color: #666;
+            text-decoration: line-through;
+            font-size: 1.1em;
+            margin-right: 10px;
+        }
+
+        .bundle-banner .new-price {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .bundle-banner .save {
+            color: #4a4;
+            font-size: 0.95em;
+            margin-top: 4px;
+        }
+
+        .bundle-banner .buy-btn {
+            display: inline-block;
+            background: #2a7a2a;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 40px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+
+        .bundle-banner .buy-btn:hover { background: #3a9a3a; }
+
+        .bundle-banner .also-link {
+            display: block;
+            margin-top: 16px;
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        .bundle-banner .also-link a {
+            color: #aaa;
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -310,194 +295,100 @@
             border-top: 1px solid #e0e0d8;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
-            .product-grid { grid-template-columns: 1fr; }
             .features { grid-template-columns: 1fr; }
+            .hero .terminal-preview { padding: 20px; font-size: 0.85em; }
         }
     </style>
 </head>
 <body>
 
-<!-- ============ HERO ============ -->
 <div class="hero">
-    <h1>Terminal Tools</h1>
-    <p class="subtitle">Software that runs on your machine, stores data on your drive, and never expires. No accounts. No subscriptions. Yours forever.</p>
-</div>
+    <h1>Language Learner</h1>
+    <p class="subtitle">Learn any 3 languages at the same time. Your vocabulary grows forever. Your data never leaves your computer.</p>
 
-<!-- ============ TWO PRODUCTS ============ -->
-<div class="products">
-    <h2>Two tools. One philosophy.</h2>
-
-    <div class="product-grid">
-
-        <!-- LANGUAGE LEARNER -->
-        <div class="product-card">
-            <h3>Language Learner</h3>
-            <p class="tagline">Learn any 3 languages at once</p>
-
-            <div class="terminal-preview">
-                <span class="hl">English:</span> Life is beautiful.<br>
-                <span class="hl">Spanish:</span> La vida es bella.<br>
-                <span class="hl">German:</span>&nbsp; Das Leben ist sch&ouml;n.<br>
-                <br>
-                <span class="dm">beautiful &nbsp;&nbsp;bella &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sch&ouml;n</span><br>
-                <span class="dm">life &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leben</span><br>
-                <span class="gr">2 words saved.</span>
-            </div>
-
-            <ul class="feature-list">
-                <li>Paste text in any language, get 3 translations</li>
-                <li>30 languages supported</li>
-                <li>Vocabulary database grows every session</li>
-                <li>Quiz with smart repetition</li>
-                <li>Built-in AI tutor for grammar questions</li>
-                <li>Mac, Windows, Linux</li>
-            </ul>
-
-            <div class="price">$19</div>
-            <p class="price-note">One-time payment. No subscription.</p>
-
-            <!-- STRIPE: Replace with Language Learner payment link -->
-            <a href="YOUR_STRIPE_LINK_LANGUAGE_LEARNER" class="buy-btn">Get Language Learner</a>
-        </div>
-
-        <!-- BUILD FIRST -->
-        <div class="product-card">
-            <h3>Build First</h3>
-            <p class="tagline">Turn any project folder into a guide</p>
-
-            <div class="terminal-preview">
-                <span class="hl">$</span> buildfirst compile ~/my-app<br>
-                <br>
-                <span class="dm">[1/8] Purpose... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done</span><br>
-                <span class="dm">[2/8] Prerequisites... Done</span><br>
-                <span class="dm">[3/8] Quick Start... &nbsp;&nbsp;Done</span><br>
-                <span class="dm">[4/8] Tutorial... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done</span><br>
-                <br>
-                <span class="gr">Guide written to: my_app_guide.md</span>
-            </div>
-
-            <ul class="feature-list">
-                <li>One command, any folder, complete guide</li>
-                <li>9-part structure: purpose, tutorial, glossary...</li>
-                <li>AI reads your code and writes the docs</li>
-                <li>Works with Claude, ChatGPT, Gemini, or free Ollama</li>
-                <li>Handles code, configs, notes, transcripts</li>
-                <li>Mac, Windows, Linux</li>
-            </ul>
-
-            <div class="price">$19</div>
-            <p class="price-note">One-time payment. No subscription.</p>
-
-            <!-- STRIPE: Replace with Build First payment link -->
-            <a href="YOUR_STRIPE_LINK_BUILD_FIRST" class="buy-btn">Get Build First</a>
-        </div>
+    <div class="terminal-preview">
+        <span class="dim">--- Chunk 1 ---</span><br>
+        <span class="highlight">English:</span> <span class="output">Life is beautiful and the world is big.</span><br>
+        <span class="highlight">Spanish:</span> <span class="output">La vida es bella y el mundo es grande.</span><br>
+        <span class="highlight">German:</span>&nbsp; <span class="output">Das Leben ist sch&ouml;n und die Welt ist gro&szlig;.</span><br>
+        <br>
+        <span class="output">English&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spanish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;German</span><br>
+        <span class="dim">--------------------&nbsp;--------------------&nbsp;--------------------</span><br>
+        <span class="output">beautiful&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bella&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sch&ouml;n</span><br>
+        <span class="output">life&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leben</span><br>
+        <span class="output">world&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mundo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welt</span><br>
+        <br>
+        <span class="prompt">3 words saved.</span>
     </div>
 
-    <!-- BUNDLE -->
-    <div class="bundle">
-        <span class="badge">Best Value</span>
-        <h3>Get Both</h3>
-        <p class="bundle-desc">Language Learner + Build First — two tools, one download.</p>
-        <div class="prices">
-            <span class="old-price">$38</span>
-            <span class="new-price">$29</span>
-        </div>
-        <p class="save">Save $9</p>
-
-        <!-- STRIPE: Replace with Bundle payment link -->
-        <a href="YOUR_STRIPE_LINK_BUNDLE" class="buy-btn">Get the Bundle</a>
-    </div>
+    <!-- STRIPE: Replace YOUR_STRIPE_LINK_LANGUAGE_LEARNER -->
+    <a href="YOUR_STRIPE_LINK_LANGUAGE_LEARNER" class="buy-btn">
+        Get Language Learner
+        <span class="price">$19 — one-time, yours forever</span>
+    </a>
 </div>
 
-<!-- ============ LANGUAGE LEARNER DETAILS ============ -->
 <div class="section">
-    <h2>Language Learner: <span class="accent">how it works</span></h2>
-    <p>Copy a paragraph from a book, a news article, song lyrics — in any language. The tool splits it into small chunks, translates each chunk into your 3 chosen languages side by side, extracts the important words, and saves them to your personal database.</p>
-    <p>Every session, your vocabulary grows. Words from last week come back in quizzes alongside today's new words. An AI tutor answers grammar questions on the spot.</p>
+    <h2>Paste text. <span class="accent">Learn words.</span></h2>
+    <p>Copy a paragraph from a book, a news article, a song lyric — in any language. Language Learner splits it into small chunks, translates each chunk into your 3 chosen languages side by side, extracts the important words, and saves them to your personal database.</p>
+    <p>Every time you process text, your vocabulary grows. Words you learned last week come back in quizzes alongside today's new words.</p>
 
     <div class="features">
         <div class="feature">
             <h3>Process Text</h3>
-            <p>Paste anything. Get instant translations. Vocabulary extracted and saved automatically.</p>
+            <p>Paste anything. Get instant translations in 3 languages. Vocabulary extracted and saved automatically.</p>
         </div>
         <div class="feature">
-            <h3>Quiz</h3>
-            <p>Newest words first, then random from your entire history. Random direction every time.</p>
+            <h3>Quiz Yourself</h3>
+            <p>Newest words first, then random from your entire history. Direction is random — English to Spanish, German to English, any combination.</p>
         </div>
         <div class="feature">
             <h3>AI Tutor</h3>
-            <p>"Why is this word different in German?" Ask anything. Get clear explanations.</p>
+            <p>Ask any question: "Why is this different in German?" Works with Claude, ChatGPT, Gemini, or free local AI.</p>
         </div>
         <div class="feature">
             <h3>Growing Database</h3>
-            <p>Your vocabulary gets bigger every session. See everything you've learned, with quiz stats.</p>
+            <p>Your vocabulary database gets bigger every session. See everything you've ever learned, with quiz stats.</p>
         </div>
     </div>
 </div>
 
-<!-- ============ BUILD FIRST DETAILS ============ -->
-<div class="section" style="padding-top: 0;">
-    <h2>Build First: <span class="accent">the 9-part guide</span></h2>
-    <p>You have a folder full of code and notes. It makes sense to you (sort of), but anyone else would be lost. You would be lost in six months. Build First reads everything and hands you a single document that explains the whole project.</p>
-
-    <div class="features">
-        <div class="feature">
-            <h3>Purpose & Prerequisites</h3>
-            <p>What this project is, why it exists, and what you need before starting.</p>
-        </div>
-        <div class="feature">
-            <h3>Quick Start & Tutorial</h3>
-            <p>Copy-paste setup in 5 minutes. Then every concept explained three ways: plain English, code, trace.</p>
-        </div>
-        <div class="feature">
-            <h3>Decision Table</h3>
-            <p>Why this approach and not another? Every choice documented with alternatives.</p>
-        </div>
-        <div class="feature">
-            <h3>Glossary & Session Log</h3>
-            <p>Every term defined. Full build history. Never lose context again.</p>
-        </div>
-    </div>
-</div>
-
-<!-- ============ WHY TERMINAL ============ -->
 <div class="why-terminal">
     <div class="inner">
-        <h2>Why terminal tools?</h2>
+        <h2>Why a terminal tool?</h2>
 
         <div class="advantage">
             <h3>Your data stays on your computer.</h3>
-            <p>No account. No cloud. No company holding your data hostage. Your files live on your machine. Back them up, move them, keep them forever.</p>
+            <p>No account. No cloud. No company holding your vocabulary hostage. Your database is a file on your machine. Back it up, move it, keep it forever.</p>
         </div>
 
         <div class="advantage">
             <h3>Unlimited storage.</h3>
-            <p>Apps give you what fits on their servers. Terminal tools give you what fits on your hard drive — thousands of times more. There is no premium tier.</p>
+            <p>Language apps give you what fits on their servers. A terminal tool gives you what fits on your hard drive — which is thousands of times more. Learn 50 words or 50,000. There is no premium tier.</p>
         </div>
 
         <div class="advantage">
             <h3>It's faster.</h3>
-            <p>No loading screens. No animations. No popups asking you to rate the app. Type a command, press Enter. Done.</p>
+            <p>No loading screens. No animations. No popups asking you to rate the app. Type a number, press Enter. That's it.</p>
         </div>
 
         <div class="advantage">
-            <h3>You own it.</h3>
-            <p>It runs on your machine. No subscription that expires. No company that can shut down and take your data with it. Buy once, use forever.</p>
+            <h3>You own the tool.</h3>
+            <p>It runs on your machine. It works offline (except translations). No subscription that expires. No company that can shut down and take your progress with it.</p>
         </div>
 
         <div class="advantage">
-            <h3>The terminal is not scary.</h3>
-            <p>If you can copy and paste, you can use it. And once you try it, you'll wonder why you ever clicked buttons.</p>
+            <h3>One command to install.</h3>
+            <p>If you can copy and paste, you can install it. The terminal is not scary — it's just typing. And once you try it, you'll wonder why you ever clicked buttons.</p>
         </div>
     </div>
 </div>
 
-<!-- ============ LANGUAGES ============ -->
 <div class="languages">
     <h2>30 Languages</h2>
-    <p class="subtitle">Language Learner supports all of these. Pick any 3.</p>
+    <p class="subtitle">Pick any 3. Change anytime.</p>
     <div class="lang-grid">
         <span class="lang-tag">Arabic</span>
         <span class="lang-tag">Bulgarian</span>
@@ -532,9 +423,53 @@
     </div>
 </div>
 
-<!-- ============ FOOTER ============ -->
+<div class="install">
+    <h2>How it works</h2>
+
+    <div class="steps">
+        <div class="step">
+            <span class="step-number">1</span>
+            <h3>Buy and download</h3>
+            <p>One payment, no subscription. You get a download for Mac, Windows, or Linux.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <h3>Get a free DeepL key</h3>
+            <p>Sign up at <strong>deepl.com/pro#developer</strong> (free plan — 500,000 characters per month). This powers the translations.</p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <h3>Run it</h3>
+            <p>Open your terminal, run the program. Pick your 3 languages. Start pasting text and learning.</p>
+        </div>
+    </div>
+
+    <!-- STRIPE: Replace YOUR_STRIPE_LINK_LANGUAGE_LEARNER -->
+    <a href="YOUR_STRIPE_LINK_LANGUAGE_LEARNER" style="display:inline-block;margin-top:30px;background:#0a0a0a;color:#fff;text-decoration:none;padding:16px 40px;border-radius:10px;font-size:1.15em;font-weight:600;">
+        Get Language Learner — $19
+    </a>
+</div>
+
+<!-- Bundle + Cross-link banner -->
+<div class="bundle-banner">
+    <div class="inner">
+        <h2>Get both tools for less</h2>
+        <p>Language Learner + <a href="buildfirst.html" style="color:#e8e8e0;text-decoration:underline;">Build First</a> — learn languages and document your projects. Two tools, one payment.</p>
+        <div class="price-row">
+            <span class="old-price">$38</span>
+            <span class="new-price">$29</span>
+        </div>
+        <p class="save">Save $9</p>
+        <!-- STRIPE: Replace YOUR_STRIPE_LINK_BUNDLE -->
+        <a href="YOUR_STRIPE_LINK_BUNDLE" class="buy-btn">Get the Bundle — $29</a>
+        <span class="also-link">Or check out <a href="buildfirst.html">Build First</a> on its own ($19)</span>
+    </div>
+</div>
+
 <div class="footer">
-    Terminal Tools &mdash; built for people who want to own their software.
+    Language Learner &mdash; built for people who want to own their learning.
 </div>
 
 </body>
