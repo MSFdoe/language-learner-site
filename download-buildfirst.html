@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build First — Download</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            background: #fafaf8;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .thanks {
+            font-size: 1.2em;
+            color: #2a4a7a;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            margin-top: 50px;
+        }
+
+        .step {
+            margin-bottom: 28px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #0a0a0a;
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-right: 8px;
+        }
+
+        .step h3 {
+            display: inline;
+            font-size: 1.05em;
+        }
+
+        .step p {
+            margin-top: 4px;
+            margin-left: 36px;
+            color: #555;
+        }
+
+        code {
+            display: block;
+            background: #111;
+            color: #e8c86a;
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            margin-left: 36px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .inline-code {
+            display: inline;
+            background: #e8e8e0;
+            color: #333;
+            padding: 2px 6px;
+            margin: 0;
+            border-radius: 4px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-top: 10px;
+            margin-left: 36px;
+        }
+
+        .tab {
+            padding: 8px 20px;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .tab:first-child { border-radius: 8px 0 0 0; }
+        .tab:last-child { border-radius: 0 8px 0 0; }
+
+        .tab.active {
+            background: #111;
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+            margin-left: 36px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content code {
+            margin-left: 0;
+            border-radius: 0 0 8px 8px;
+            margin-top: 0;
+        }
+
+        .note {
+            background: #f0f0ea;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-top: 40px;
+            color: #555;
+        }
+
+        .note strong {
+            color: #1a1a1a;
+        }
+
+        .providers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+            margin-left: 36px;
+        }
+
+        .provider {
+            background: #f5f5f0;
+            border-radius: 8px;
+            padding: 14px 16px;
+        }
+
+        .provider strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .provider span {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0d8;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Build First</h1>
+    <p class="thanks">Thank you for your purchase.</p>
+
+    <h2>Install (2 minutes)</h2>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <h3>Make sure you have Python 3.8+</h3>
+        <p>Check by running:</p>
+        <code>python3 --version</code>
+        <p style="margin-top: 8px">If you don't have it, download from <strong>python.org</strong>. Windows users: try <code class="inline-code">python --version</code> instead.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <h3>Download and install</h3>
+        <p>Open your terminal and run these 4 commands:</p>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('mac')">Mac / Linux</button>
+            <button class="tab" onclick="showTab('win')">Windows</button>
+        </div>
+        <div class="tab-content active" id="tab-mac">
+            <code>git clone https://github.com/MSFdoe/buildfirst.git
+cd buildfirst
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt</code>
+        </div>
+        <div class="tab-content" id="tab-win">
+            <code>git clone https://github.com/MSFdoe/buildfirst.git
+cd buildfirst
+python -m venv .venv
+.venv\Scripts\pip install -r requirements.txt</code>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <h3>Run setup (pick your AI provider)</h3>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab2('mac2')">Mac / Linux</button>
+            <button class="tab" onclick="showTab2('win2')">Windows</button>
+        </div>
+        <div class="tab-content active" id="tab-mac2">
+            <code>.venv/bin/python -m buildfirst setup</code>
+        </div>
+        <div class="tab-content" id="tab-win2">
+            <code>.venv\Scripts\python -m buildfirst setup</code>
+        </div>
+
+        <p style="margin-top: 12px">You'll pick from 4 AI providers:</p>
+        <div class="providers">
+            <div class="provider">
+                <strong>Ollama</strong>
+                <span>Free, private, local</span>
+            </div>
+            <div class="provider">
+                <strong>Claude</strong>
+                <span>~$0.05 per guide</span>
+            </div>
+            <div class="provider">
+                <strong>ChatGPT</strong>
+                <span>~$0.05 per guide</span>
+            </div>
+            <div class="provider">
+                <strong>Gemini</strong>
+                <span>Free tier available</span>
+            </div>
+        </div>
+        <p style="margin-top: 10px"><strong>Not sure?</strong> Start with Ollama — it's free and nothing leaves your computer.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4</span>
+        <h3>Generate your first guide</h3>
+        <p>Point it at any project folder:</p>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab3('mac3')">Mac / Linux</button>
+            <button class="tab" onclick="showTab3('win3')">Windows</button>
+        </div>
+        <div class="tab-content active" id="tab-mac3">
+            <code>.venv/bin/python -m buildfirst compile ~/my-project --title "My Project"</code>
+        </div>
+        <div class="tab-content" id="tab-win3">
+            <code>.venv\Scripts\python -m buildfirst compile C:\my-project --title "My Project"</code>
+        </div>
+
+        <p style="margin-top: 10px">Takes 1–2 minutes. You'll get a single <code class="inline-code">.md</code> file with all 9 sections.</p>
+    </div>
+
+    <div class="note">
+        <strong>That's it.</strong> Every guide follows the same 9-part structure: Purpose, Table of Contents, Prerequisites, Decision Table, Quick Start, Tutorial (Concept → Code → Trace), Worked Trace, Glossary, and Session Log. Point it at any folder and get a complete learning guide.
+    </div>
+
+    <div class="note" style="margin-top: 16px;">
+        <strong>Updates.</strong> To get the latest version, open your terminal, go to the buildfirst folder, and run <code class="inline-code">git pull</code>. That's it.
+    </div>
+</div>
+
+<div class="footer">
+    Questions? Email support@buildfirst.dev
+</div>
+
+<script>
+function showTab(id) {
+    document.querySelectorAll('#tab-mac, #tab-win').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tabs')[0].querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    if (id === 'mac') document.querySelectorAll('.tabs')[0].children[0].classList.add('active');
+    else document.querySelectorAll('.tabs')[0].children[1].classList.add('active');
+}
+function showTab2(id) {
+    document.querySelectorAll('#tab-mac2, #tab-win2').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tabs')[1].querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    if (id === 'mac2') document.querySelectorAll('.tabs')[1].children[0].classList.add('active');
+    else document.querySelectorAll('.tabs')[1].children[1].classList.add('active');
+}
+function showTab3(id) {
+    document.querySelectorAll('#tab-mac3, #tab-win3').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tabs')[2].querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    if (id === 'mac3') document.querySelectorAll('.tabs')[2].children[0].classList.add('active');
+    else document.querySelectorAll('.tabs')[2].children[1].classList.add('active');
+}
+</script>
+
+</body>
+</html>
