@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products — Terminal Tools That You Own</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.7;
+            background: #fafaf8;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 16px 24px;
+            background: #0a0a0a;
+            font-size: 0.95em;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: #fff; }
+        nav a.active { color: #fff; font-weight: 600; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e8e8e0;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #a0a098;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Product cards */
+        .products {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 2px solid #e0e0d8;
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: border-color 0.2s;
+        }
+
+        .product-card:hover { border-color: #aaa; }
+
+        .product-card .tag {
+            display: inline-block;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .product-card.green .tag { background: #e8f5e8; color: #2a7a2a; }
+        .product-card.blue .tag { background: #e8ecf5; color: #2a4a7a; }
+
+        .product-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .product-card .desc {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .product-card .terminal {
+            background: #111;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85em;
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 24px;
+        }
+
+        .product-card .terminal .highlight { color: #e8c86a; }
+        .product-card .terminal .prompt { color: #6a6; }
+        .product-card .terminal .dim { color: #666; }
+
+        .product-card .price {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .product-card .price-note {
+            font-size: 0.95em;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .product-card .btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1.05em;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .product-card .btn:hover { opacity: 0.85; }
+
+        .product-card.green .btn { background: #2a7a2a; }
+        .product-card.blue .btn { background: #2a4a7a; }
+
+        .product-card .learn-more {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        .product-card .learn-more a { color: #555; }
+
+        /* Bundle */
+        .bundle {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        .bundle-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2a 100%);
+            border-radius: 16px;
+            padding: 50px 40px;
+            color: #e8e8e0;
+            text-align: center;
+        }
+
+        .bundle-card .badge {
+            display: inline-block;
+            background: #2a7a2a;
+            color: #fff;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bundle-card h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .bundle-card .desc {
+            color: #a0a098;
+            font-size: 1.1em;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        .bundle-card .pricing {
+            margin-bottom: 24px;
+        }
+
+        .bundle-card .old-price {
+            color: #666;
+            text-decoration: line-through;
+            font-size: 1.2em;
+            margin-right: 12px;
+        }
+
+        .bundle-card .new-price {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .bundle-card .save-note {
+            color: #4a4;
+            font-size: 1em;
+            margin-top: 4px;
+        }
+
+        .bundle-card .btn {
+            display: inline-block;
+            background: #fff;
+            color: #0a0a0a;
+            text-decoration: none;
+            padding: 16px 50px;
+            border-radius: 10px;
+            font-size: 1.15em;
+            font-weight: 700;
+            transition: opacity 0.2s;
+        }
+
+        .bundle-card .btn:hover { opacity: 0.9; }
+
+        .bundle-card .includes {
+            margin-top: 24px;
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        /* Philosophy */
+        .philosophy {
+            background: #f0f0ea;
+            padding: 70px 24px;
+        }
+
+        .philosophy .inner {
+            max-width: 660px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .philosophy p {
+            font-size: 1.15em;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .philosophy .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .philosophy .value h3 {
+            font-size: 1.05em;
+            margin-bottom: 4px;
+        }
+
+        .philosophy .value p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0d8;
+        }
+
+        @media (max-width: 700px) {
+            .products { grid-template-columns: 1fr; }
+            .philosophy .values { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="products.html" class="active">Products</a>
+    <a href="index.html">Language Learnerrr</a>
+    <a href="buildfirst.html">Build First</a>
+</nav>
+
+<div class="hero">
+    <h1>Terminal tools that you own.</h1>
+    <p class="subtitle">No subscriptions. No accounts. No cloud. Buy once, keep forever. Your data stays on your machine.</p>
+</div>
+
+<!-- Two product cards -->
+<div class="products">
+    <div class="product-card green">
+        <span class="tag">Languages</span>
+        <h2>Language Learnerrr</h2>
+        <p class="desc">Learn any 3 languages at once. Paste text, get translations, build vocabulary, quiz yourself.</p>
+
+        <div class="terminal">
+            <span class="dim">--- Chunk 1 ---</span><br>
+            <span class="highlight">English:</span> Life is beautiful.<br>
+            <span class="highlight">Spanish:</span> La vida es bella.<br>
+            <span class="highlight">German:</span>&nbsp; Das Leben ist sch&ouml;n.<br>
+            <br>
+            <span class="prompt">3 words saved.</span>
+        </div>
+
+        <div class="price">$19</div>
+        <p class="price-note">One-time payment, yours forever</p>
+
+        <!-- STRIPE: Replace YOUR_STRIPE_LINK_LANGUAGE_LEARNER -->
+        <a href="YOUR_STRIPE_LINK_LANGUAGE_LEARNER" class="btn">Get Language Learnerrr</a>
+        <span class="learn-more"><a href="index.html">Learn more</a></span>
+    </div>
+
+    <div class="product-card blue">
+        <span class="tag">Documentation</span>
+        <h2>Build First</h2>
+        <p class="desc">Turn any project folder into a complete 9-part learning guide. One command, any codebase.</p>
+
+        <div class="terminal">
+            <span class="highlight">$</span> buildfirst compile ~/my-app<br>
+            <br>
+            <span class="dim">Found 23 files</span><br>
+            [1/8] Purpose... <span class="prompt">Done</span><br>
+            [2/8] Prerequisites... <span class="prompt">Done</span><br>
+            <span class="dim">...</span><br>
+            <br>
+            <span class="prompt">Guide written to: my_app_guide.md</span>
+        </div>
+
+        <div class="price">$19</div>
+        <p class="price-note">One-time payment, yours forever</p>
+
+        <!-- STRIPE: Replace YOUR_STRIPE_LINK_BUILD_FIRST -->
+        <a href="YOUR_STRIPE_LINK_BUILD_FIRST" class="btn">Get Build First</a>
+        <span class="learn-more"><a href="buildfirst.html">Learn more</a></span>
+    </div>
+</div>
+
+<!-- Bundle -->
+<div class="bundle">
+    <div class="bundle-card">
+        <span class="badge">Best Value</span>
+        <h2>Get Both</h2>
+        <p class="desc">Language Learnerrr + Build First. Learn languages and document your code. Two tools, one payment.</p>
+        <div class="pricing">
+            <span class="old-price">$38</span>
+            <span class="new-price">$29</span>
+            <p class="save-note">Save $9</p>
+        </div>
+        <!-- STRIPE: Replace YOUR_STRIPE_LINK_BUNDLE -->
+        <a href="YOUR_STRIPE_LINK_BUNDLE" class="btn">Get the Bundle — $29</a>
+        <p class="includes">Includes Language Learnerrr + Build First. All platforms: Mac, Windows, Linux.</p>
+    </div>
+</div>
+
+<!-- Philosophy -->
+<div class="philosophy">
+    <div class="inner">
+        <h2>Why terminal tools?</h2>
+        <p>Every app you use lives on someone else's server. When that company shuts down, your data goes with it. Terminal tools are different.</p>
+
+        <div class="values">
+            <div class="value">
+                <h3>You own your data</h3>
+                <p>Everything is a file on your computer. Back it up, move it, keep it for decades.</p>
+            </div>
+            <div class="value">
+                <h3>No subscription</h3>
+                <p>Pay once. Use forever. No monthly fees, no "free trial expires."</p>
+            </div>
+            <div class="value">
+                <h3>No account needed</h3>
+                <p>No email, no password, no marketing emails. Download, run, done.</p>
+            </div>
+            <div class="value">
+                <h3>Unlimited storage</h3>
+                <p>Your hard drive is your limit. Not some cloud tier. Learn 50 words or 50,000.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    Terminal tools that you own &mdash; by Bosko Begovic
+</div>
+
+</body>
+</html>

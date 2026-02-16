@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Learner — Download</title>
+    <title>Language Learnerrr — Download</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -123,6 +123,25 @@
             color: #1a1a1a;
         }
 
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 16px 24px;
+            background: #0a0a0a;
+            font-size: 0.95em;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: #fff; }
+        nav a.active { color: #fff; font-weight: 600; }
+
         .footer {
             text-align: center;
             padding: 40px 24px;
@@ -135,8 +154,14 @@
 </head>
 <body>
 
+<nav>
+    <a href="products.html">Products</a>
+    <a href="index.html" class="active">Language Learnerrr</a>
+    <a href="buildfirst.html">Build First</a>
+</nav>
+
 <div class="container">
-    <h1>Language Learner</h1>
+    <h1>Language Learnerrr</h1>
     <p class="thanks">Thank you for your purchase.</p>
 
     <h2>Download</h2>
