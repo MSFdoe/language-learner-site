@@ -212,13 +212,25 @@
 
     <div class="step">
         <span class="step-number">4</span>
+        <h3>Allow it to run (Mac only)</h3>
+        <p>macOS may block the app the first time because it wasn't downloaded from the App Store. This is normal.</p>
+        <p>If you see <strong>"macOS cannot verify that this app is free from malware"</strong>:</p>
+        <p>1. Open <strong>System Settings</strong> → <strong>Privacy & Security</strong></p>
+        <p>2. Scroll down — you'll see a message about the blocked file</p>
+        <p>3. Click <strong>"Allow Anyway"</strong></p>
+        <p>4. Run the command again. Click <strong>Open</strong> when asked.</p>
+        <p style="font-size: 0.9em; color: #888;">You only need to do this once. The app is safe — it's open source and you can inspect the code yourself.</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">5</span>
         <h3>Run it</h3>
         <code>~/Downloads/language_learner-macos-arm64</code>
         <p style="margin-left: 36px; margin-top: 10px;">It will ask for your DeepL key, let you pick 3 languages, and you're ready to go.</p>
     </div>
 
     <div class="step">
-        <span class="step-number">5</span>
+        <span class="step-number">6</span>
         <h3>Optional: Move it to your PATH</h3>
         <p>So you can run it from anywhere by just typing <strong>language_learner</strong>:</p>
         <code>sudo mv ~/Downloads/language_learner-macos-arm64 /usr/local/bin/language_learner</code>
